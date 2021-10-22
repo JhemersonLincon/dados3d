@@ -1,0 +1,95 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body{
+  height: 100%;
+  background-color: darkgray;
+  display: grid;
+  grid-template-columns: 200px;
+  justify-content: center;
+  align-items: center;
+}
+.estrutura{
+  width: 400px;
+  margin-top: 10px;
+  height:400px;
+  perspective: 600px;
+}
+.cube{
+  transform-style: preserve-3d;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.box{
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 10px, 1fr;
+  justify-content: center;
+  align-items: center;
+  background-color: white!important;
+  opacity: 0.95;
+  border: black solid;
+  position: absolute;
+}
+.front{
+  background-color: rgb(148, 0, 211);
+  transform: rotateY(0deg) translateZ(150px);
+}
+.right{
+  background-color: rgb(153, 205, 50);
+  transform: rotateY(90deg) translateZ(150px);
+}
+.back{
+  background-color: rgb(64, 224, 208);
+  transform: rotateY(180deg) translateZ(150px);
+}
+.left{
+  background-color: rgb(112, 128, 144);
+  transform: rotateY(-90deg) translateZ(150px);
+}
+.top{
+  background-color: rgb(46, 139, 86);
+  transform: rotateX(90deg) translateZ(150px);
+}
+.bottom{
+  background-color:rgba(250, 128, 114, 0.993);
+  transform: rotateX(-90deg) translateZ(150px);
+}
+
+.cube{
+  animation: fallingDown .3s;
+  transition: 1s;
+}
+.cube.show-front{transform: rotateY(0deg) translateZ(-100px);}
+.cube.show-right{transform: rotateY(-90deg) translateZ(-100px);}
+.cube.show-back{transform: rotateY(-180deg) translateZ(-100px);}
+.cube.show-left{transform: rotateY(90deg) translateZ(-100px);}
+.cube.show-top{transform: rotateX(-90deg) translateZ(-100px); }
+.cube.show-bottom{transform: rotateX(90deg) translateZ(-100px); }
+.box > div{
+  height: 40px;
+  border-radius: 50%;
+  width: 40px;
+  box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.637);
+  background-color: black;
+}
+.btn{
+  width: 200px;
+  margin-top: 100px;
+  border: none;
+  font-size: 1.5rem;
+  height: 100px;
+}
+.btn:hover{
+  background-color: white;
+}
+@keyframes fallingDown {
+  0%{
+    transform: translateY(-1000px) translateZ(-350px);
+  }
+
+}
